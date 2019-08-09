@@ -1,0 +1,33 @@
+
+parameters:
+  fingerprint:
+    type: string
+    description: ssh key fingerprint from CircleCI to push site back to repo
+    default: ""
+
+executor: default
+environment:
+  DIRECTORY: "_site"
+  BRANCH: "gh-pages"
+
+steps:
+  - checkout
+  - add_ssh_keys:
+      fingerprints:
+        - << parameters.fingerprint >>
+  - run: |
+        echo $DIRECTORY
+        echo $BRANCH
+  - run: git fetch origin $BRANCH
+  - run: rm -rf $DIRECTORY
+  - run: git worktree add $DIRECTORY $BRANCH
+  - run: |
+        git config --global user.email "githubpagesorb@gmail.com"
+        git config --global user.name "GitHubPagesOrb"
+  - install-deps
+  - run: bundle exec jekyll build
+  - run: |
+      cd $DIRECTORY
+      git add -A
+      git commit -m "[skip ci] Deploy updates" 
+      git push origin gh-pages -f

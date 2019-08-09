@@ -1,0 +1,11 @@
+description: >
+  If you're using cloudflare to improve your site speed this command will let you hit their API to clear the cache when the site has been updated
+
+steps:
+  - run: |
+      set -e
+      curl -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE/purge_cache" \
+          -H "X-Auth-Email: $CF_EMAIL" \
+          -H "X-Auth-Key: $CF_KEY" \
+          -H "Content-Type: application/json" \
+          --data '{"purge_everything":true}'
