@@ -100,7 +100,7 @@ workflows:
           ssh-fingerprints: c9:ae:7a:2d:60:fd:77:14:24:a9:f8:ff:eb:1a:a2:d1
           cleanup-tags: true
           requires:
-            - test-dev
+            - test-master
           filters:
             branches:
               ignore: /.*/
