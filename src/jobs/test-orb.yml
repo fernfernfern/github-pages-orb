@@ -1,5 +1,7 @@
 description: >
   dunno if this works
 
+executor: default
+
 steps:
   - run: lol testing
