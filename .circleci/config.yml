@@ -1,5 +1,18 @@
 version: 2.1
 
+# yaml anchor filters
+integration-dev_filters: &integration-dev_filters
+  branches:
+    ignore: /.*/
+  tags:
+    only: /integration-.*/
+
+integration-master_filters: &integration-master_filters
+  branches:
+    ignore: /.*/
+  tags:
+    only: /master-.*/
+
 # add your orb below, to be used in integration tests (note: a @dev:alpha
 # release must exist; you'll need to publish manually at least once)
 # you can use scripts/publish-alpha.sh to publish a @dev:alpha release
@@ -60,10 +73,10 @@ workflows:
   # it is only triggered by git tags, which are created in the job above
   integration-tests_prod-release:
     jobs:
-      - gph/test-orb:
+      - test-orb:
           name: test-dev
           filters: *integration-dev_filters
-      - gph/test-orb:
+      - test-orb:
           name: test-master
           filters: *integration-master_filters
 
@@ -116,15 +129,4 @@ workflows:
             tags:
               only: /master-major.*/
 
-# yaml anchor filters
-integration-dev_filters: &integration-dev_filters
-  branches:
-    ignore: /.*/
-  tags:
-    only: /integration-.*/
 
-integration-master_filters: &integration-master_filters
-  branches:
-    ignore: /.*/
-  tags:
-    only: /master-.*/
