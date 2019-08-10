@@ -20,6 +20,12 @@ orbs:
   gpo: fernfernfern/github-pages-orb@dev:alpha
   orb-tools: circleci/orb-tools@8.27.3
 
+jobs:
+  test-job:
+    executor: gpo/default
+    steps:
+      - run: echo this is a test or something
+
 workflows:
   # this `lint-pack_validate_publish-dev` workflow will run on any commit
   lint-pack_validate_publish-dev:
