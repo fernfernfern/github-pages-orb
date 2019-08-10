@@ -24,7 +24,11 @@ jobs:
   test-job:
     executor: gpo/default
     steps:
-      - run: echo this is a test or something
+      - checkout
+      - run: cd test/example-site
+      - gpo/install-deps
+      - gpo/build-site
+      - gpo/test-site
 
 workflows:
   # this `lint-pack_validate_publish-dev` workflow will run on any commit

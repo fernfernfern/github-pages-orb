@@ -1,0 +1,11 @@
+description: >
+  we can use html-proofer to check our site structure
+
+parameters:
+  site-folder:
+    description: location of the generated jekyll site
+    default: _site
+    type: string
+
+steps:
+  - run: htmlproofer ./<< parameters.site-folder >> --check-html --disable-external --check-opengraph --check-favicon

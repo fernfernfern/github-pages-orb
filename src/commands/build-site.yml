@@ -1,0 +1,15 @@
+description: >
+  we can use html-proofer to check our site structure
+
+parameters:
+  site-dest:
+    description: location of the generated jekyll site
+    default: _site
+    type: string
+  site-src:
+    description: location of the jekyll site source
+    default: "./"
+    type: string
+
+steps:
+  - run: jekyll build -s << parameters.site-src >> -d << parameters.site-dest >>
