@@ -20,12 +20,6 @@ orbs:
   gpo: fernfernfern/github-pages-orb@dev:alpha
   orb-tools: circleci/orb-tools@8.27.3
 
-jobs:
-  test-job:
-    executor: gpo/default
-    steps:
-      - run: echo wat
-
 workflows:
   # this `lint-pack_validate_publish-dev` workflow will run on any commit
   lint-pack_validate_publish-dev:
@@ -79,10 +73,10 @@ workflows:
   # it is only triggered by git tags, which are created in the job above
   integration-tests_prod-release:
     jobs:
-      - test-job:
+      - gho/test:
           name: test-dev
           filters: *integration-dev_filters
-      - test-job:
+      - gho/test:
           name: test-master
           filters: *integration-master_filters
 

@@ -6,6 +6,7 @@ description: >
 executor: default
 steps:
   - checkout
+  - run: echo test
   - install-deps
   - run: bundle exec jekyll build
   - run: bundle exec htmlproofer ./_site --check-html --disable-external --check-opengraph --check-favicon
