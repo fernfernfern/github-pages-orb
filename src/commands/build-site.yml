@@ -8,7 +8,7 @@ parameters:
     type: string
   site-src:
     description: location of the jekyll site source
-    default: "./"
+    default: "."
     type: string
   with-gems:
     default: false
