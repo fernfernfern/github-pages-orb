@@ -14,3 +14,7 @@ steps:
   - build-site:
       with-gems: << parameters.with-gems >>
   - test-site
+  - persist_to_workspace:
+    root: ./
+    paths:
+      - _site
