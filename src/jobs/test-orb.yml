@@ -4,6 +4,7 @@ description: >
 executor: default
 steps:
   - checkout
+  - run: ls -a
   - run: cd src/test/example-site
   - build-site
   - test-site
