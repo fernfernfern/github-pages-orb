@@ -73,10 +73,10 @@ workflows:
   # it is only triggered by git tags, which are created in the job above
   integration-tests_prod-release:
     jobs:
-      - gpo/test:
+      - gpo/test-orb:
           name: test-dev
           filters: *integration-dev_filters
-      - gpo/test:
+      - gpo/test-orb:
           name: test-master
           filters: *integration-master_filters
 
