@@ -15,4 +15,3 @@ steps:
       key: -v1-{{ checksum "Gemfile.lock" }}
       paths:
         - "vendor/bundle"
-
