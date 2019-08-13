@@ -10,14 +10,14 @@ steps:
   - run: cd << parameters.gemfile-path >>
   - run: ls -alR
   - run: |
-      if [ ! -f Gemfile.lock ]; then
+      if [ ! -f << parameters.gemfile-path >>/Gemfile.lock ]; then
           echo "Create a Gemfile.lock and commit it to your repo to use gems" && exit 1
       fi
   - restore_cache:
       keys:
-        - -v1-{{ checksum "Gemfile.lock" }}
-  - run: bundler install --path vendor/bundle
+        - -v1-{{ checksum "<< parameters.gemfile-path >>/Gemfile.lock" }}
+  - run: bundler install --gemfile="<< parameters.gemfile-path >>/Gemfile" --path "<< parameters.gemfile-path >>/vendor/bundle"
   - save_cache:
-      key: -v1-{{ checksum "Gemfile.lock" }}
+      key: -v1-{{ checksum "<< parameters.gemfile-path >>/Gemfile.lock" }}
       paths:
         - "vendor/bundle"
