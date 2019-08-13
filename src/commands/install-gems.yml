@@ -14,7 +14,7 @@ steps:
   - restore_cache:
       keys:
         - -v1-{{ checksum "<< parameters.gemfile-path >>/Gemfile.lock" }}
-  - run: bundler install --gemfile="<< parameters.gemfile-path >>/Gemfile" --path "<< parameters.gemfile-path >>/vendor/bundle"
+  - run: bundler install --gemfile="<< parameters.gemfile-path >>/Gemfile" --path "vendor/bundle"
   - save_cache:
       key: -v1-{{ checksum "<< parameters.gemfile-path >>/Gemfile.lock" }}
       paths:
