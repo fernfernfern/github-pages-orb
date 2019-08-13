@@ -8,5 +8,9 @@ parameters:
     type: string
 
 steps:
-  - run: FILES=$(find ./<< parameters.site-folder >> -type f -name '*.json')&& [[ -z "$FILES" ]] && echo "$FILES" && jsonlint $FILES
+  - run: |
+      [[ -z `find ./<< parameters.site-folder >> -type f -name '*.json' -quit` ]] &&
+      FILES=$(find ./<< parameters.site-folder >> -type f -name '*.json' -print) &&
+      jsonlint $FILES
+
   - run: htmlproofer ./<< parameters.site-folder >> --check-html --disable-external --check-opengraph --check-favicon
