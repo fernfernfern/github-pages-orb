@@ -13,4 +13,4 @@ steps:
   - persist_to_workspace:
       root: ~/project/test/example-site/
       paths:
-        - "_site"
+        - _site
