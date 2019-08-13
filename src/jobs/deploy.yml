@@ -23,7 +23,7 @@ steps:
       at: ./
   - run: git worktree add $DIRECTORY $BRANCH
   - run: |
-        git config --global user.email "githubpagesorb@gmail.com"
+        git config --global user.email "githubpagesorb@example.com"
         git config --global user.name "GitHubPagesOrb"
   - run: |
       cd $DIRECTORY

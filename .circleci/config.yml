@@ -76,10 +76,18 @@ workflows:
       - gpo/test-orb:
           name: test-dev
           filters: *integration-dev_filters
+      - gpo/deploy:
+          filters: *integration-dev_filters
+          requires:
+            -  test-dev
+
       - gpo/test-orb:
           name: test-master
           filters: *integration-master_filters
-
+      - gpo/deploy:
+          filters: *integration-master_filters
+          requires:
+            - test-master
       # - your integration test jobs go here
       # - you will want to call each integration testing job twice,
       # - each under a different name:
