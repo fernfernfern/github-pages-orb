@@ -2,6 +2,10 @@ description: >
   Install the jekyll Rubygem site dependencies to a folder and cache them
 
 steps:
+  - run: |
+      if [ ! -f Gemfile.lock ]; then
+          echo "Create a Gemfile.lock and commit it to your repo to use gems" && exit 1
+      fi
   - restore_cache:
       keys:
         - -v1-{{ checksum "Gemfile.lock" }}
