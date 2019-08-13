@@ -10,6 +10,6 @@ steps:
   - test-site:
       site-folder: test/example-site/_site
   - persist_to_workspace:
-      root: ~/test/example-site/
+      root: ~/project/test/example-site/
       paths:
         - _site
