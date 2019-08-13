@@ -11,6 +11,6 @@ steps:
       site-folder: test/example-site/_site
   - run: cd ~/project/test/example-site/ && ls -alR
   - persist_to_workspace:
-      root: ~/project/test/example-site/
+      root: ~/project/test/
       paths:
-        - _site
+        - "example-site/_site"
