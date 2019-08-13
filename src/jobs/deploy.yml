@@ -28,5 +28,5 @@ steps:
   - run: |
       cd $DIRECTORY
       git add -A
-      git commit -m "[skip ci] Deploy updates"
+      git commit -m "[skip ci] Deploy-updates"
       git push origin gh-pages -f
