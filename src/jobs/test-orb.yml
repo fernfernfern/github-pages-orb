@@ -7,6 +7,9 @@ steps:
   - build-site:
       with-gems: true
       site-src: test/example-site
+  - store_artifacts:
+      path: test/example-site
+      destination: example-site
   - test-site:
       site-folder: test/example-site/_site
   - run: cd ~/project/test/example-site/ && ls -alR
