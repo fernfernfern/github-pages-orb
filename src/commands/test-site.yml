@@ -10,4 +10,4 @@ parameters:
 steps:
   - run: FILES=$(find ./<< parameters.site-folder >> -type f -name '*.json' -print) && [[ -z "$FILES" ]] && echo no json files ||  jsonlint $FILES
 
-  - run: htmlproofer ./<< parameters.site-folder >> --check-html --disable-external --check-opengraph --check-favicon
+  - run: htmlproofer ./<< parameters.site-folder >> --check-html --disable-external --check-opengraph
