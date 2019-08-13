@@ -7,8 +7,6 @@ parameters:
     default: "."
 
 steps:
-  - run: cd << parameters.gemfile-path >>
-  - run: ls -alR
   - run: |
       if [ ! -f << parameters.gemfile-path >>/Gemfile.lock ]; then
           echo "Create a Gemfile.lock and commit it to your repo to use gems" && exit 1
