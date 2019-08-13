@@ -17,7 +17,7 @@ steps:
   - run: |
         echo $DIRECTORY
         echo $BRANCH
-  - run: git fetch origin $BRANCH
+  - run: git fetch origin $BRANCH || true
   - run: rm -rf $DIRECTORY
   - attach_workspace:
       at: ~/project
