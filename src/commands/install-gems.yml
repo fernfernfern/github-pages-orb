@@ -18,4 +18,4 @@ steps:
   - save_cache:
       key: -v1-{{ checksum "<< parameters.gemfile-path >>/Gemfile.lock" }}
       paths:
-        - "vendor/bundle"
+        - "<< parameters.gemfile-path >>/vendor/bundle"
