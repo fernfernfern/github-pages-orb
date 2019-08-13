@@ -5,5 +5,8 @@ executor: default
 steps:
   - checkout
   - run: cd test/example-site
-  - build-site
-  - test-site
+  - build-site:
+      site-src: test/example-site
+      site-dest: test/example-site/_site
+  - test-site:
+      site-folder: test/example-site/_site
