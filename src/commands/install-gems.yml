@@ -1,7 +1,13 @@
 description: >
   Install the jekyll Rubygem site dependencies to a folder and cache them
 
+parameters:
+  gemfile-path:
+    type: "string"
+    default: "."
+
 steps:
+  - run: cd << parameters.gemfile-path >>
   - run: |
       if [ ! -f Gemfile.lock ]; then
           echo "Create a Gemfile.lock and commit it to your repo to use gems" && exit 1

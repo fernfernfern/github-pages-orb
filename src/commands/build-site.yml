@@ -18,7 +18,9 @@ steps:
   - when:
       condition: << parameters.with-gems >>
       steps:
-        - install-gems
+        - cd << parameters.site-src >>
+        - install-gems:
+            gemfile-path: << parameters.site-src >>
         - run: bundle exec jekyll build -s << parameters.site-src >> -d << parameters.site-dest >>
   - unless:
       condition: << parameters.with-gems >>
