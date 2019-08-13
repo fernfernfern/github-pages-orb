@@ -12,5 +12,5 @@ executor: default
 steps:
   - checkout
   - build-site:
-      install-gems: << prameters.install-gems >>
+      install-gems: << parameters.install-gems >>
   - test-site

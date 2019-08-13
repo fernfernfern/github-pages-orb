@@ -23,7 +23,7 @@ steps:
   - run: |
         git config --global user.email "githubpagesorb@gmail.com"
         git config --global user.name "GitHubPagesOrb"
-  - install-deps
+  - install-gems
   - run: bundle exec jekyll build
   - run: |
       cd $DIRECTORY
