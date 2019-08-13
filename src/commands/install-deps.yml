@@ -11,3 +11,4 @@ steps:
   #     paths:
   #       - "vendor/bundle"
   - run: echo test
+  - run: echo test
