@@ -20,7 +20,7 @@ steps:
   - run: git fetch origin $BRANCH
   - run: rm -rf $DIRECTORY
   - attach_workspace:
-      at: ./
+      at: ~/
   - run: git worktree add $DIRECTORY $BRANCH
   - run: |
         git config --global user.email "githubpagesorb@example.com"
