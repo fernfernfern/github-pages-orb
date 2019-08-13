@@ -4,7 +4,7 @@ description: >
   Sample description
 
 parameters:
-  install-gems:
+  with-gems:
     default: false
     type: boolean
 
@@ -12,5 +12,5 @@ executor: default
 steps:
   - checkout
   - build-site:
-      install-gems: << parameters.install-gems >>
+      with-gems: << parameters.with-gems >>
   - test-site
