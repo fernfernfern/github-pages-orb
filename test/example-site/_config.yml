@@ -13,3 +13,10 @@ github_username: jekyll
 # Build settings
 markdown: kramdown
 permalink: /:year/:title:output_ext
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - vendor/bundle
