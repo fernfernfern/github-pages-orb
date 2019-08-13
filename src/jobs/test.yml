@@ -3,10 +3,14 @@ description: >
   # Descriptions should be short, simple, and clear.
   Sample description
 
+parameters:
+  install-gems:
+    default: false
+    type: boolean
+
 executor: default
 steps:
   - checkout
-  - run: echo test
-  - install-deps
-  # - run: bundle exec jekyll build
-  # - run: bundle exec htmlproofer ./_site --check-html --disable-external --check-opengraph --check-favicon
+  - build-site:
+      install-gems: << prameters.install-gems >>
+  - test-site

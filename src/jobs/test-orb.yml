@@ -1,7 +1,9 @@
 description: >
-  dunno if this works
+  Test the orb
 
 executor: default
-
 steps:
-  - run: lol testing
+  - checkout
+  - run: cd src/test/example-site
+  - build-site
+  - test-site
