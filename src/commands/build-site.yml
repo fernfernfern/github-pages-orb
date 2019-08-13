@@ -10,13 +10,17 @@ parameters:
     description: location of the jekyll site source
     default: "./"
     type: string
-  install-gems:
+  with-gems:
     default: false
     type: boolean
 
 steps:
   - when:
-      condition: << parameters.install-gems >>
+      condition: << parameters.with-gems >>
       steps:
         - install-gems
-  - run: jekyll build -s << parameters.site-src >> -d << parameters.site-dest >>
+        - run: bundle exec jekyll build -s << parameters.site-src >> -d << parameters.site-dest >>
+  - unless:
+      condition: << parameters.with-gems >>
+      steps:
+        - run: jekyll build -s << parameters.site-src >> -d << parameters.site-dest >>
