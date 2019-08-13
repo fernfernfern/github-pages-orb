@@ -4,7 +4,7 @@ description: >
 parameters:
   site-dest:
     description: location of the generated jekyll site
-    default: _site
+    default: << parameters.site-src >>/_site
     type: string
   site-src:
     description: location of the jekyll site source
