@@ -2,11 +2,12 @@ description: >
   Install the jekyll Rubygem site dependencies to a folder and cache them
 
 steps:
-  - restore_cache:
-      keys:
-        - -v1-{{ checksum "Gemfile.lock" }}
-  - run: bundler install --path vendor/bundle
-  - save_cache:
-      key: -v1-{{ checksum "Gemfile.lock" }}
-      paths:
-        - "vendor/bundle"
+  # - restore_cache:
+  #     keys:
+  #       - -v1-{{ checksum "Gemfile.lock" }}
+  # - run: bundler install --path vendor/bundle
+  # - save_cache:
+  #     key: -v1-{{ checksum "Gemfile.lock" }}
+  #     paths:
+  #       - "vendor/bundle"
+  - run: echo test
