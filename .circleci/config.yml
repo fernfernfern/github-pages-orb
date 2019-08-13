@@ -81,7 +81,7 @@ workflows:
           name: deploy-dev
           filters: *integration-dev_filters
           requires:
-            -  test-dev
+            - test-dev
 
       - gpo/test-orb:
           name: test-master
