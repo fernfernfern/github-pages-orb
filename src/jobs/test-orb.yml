@@ -9,3 +9,7 @@ steps:
       site-src: test/example-site
   - test-site:
       site-folder: test/example-site/_site
+  - persist_to_workspace:
+      root: ~/test/example-site/
+      paths:
+        - _site
