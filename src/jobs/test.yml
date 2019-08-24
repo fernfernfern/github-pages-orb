@@ -1,10 +1,11 @@
 description: >
-  # What will this job do?
-  # Descriptions should be short, simple, and clear.
-  Sample description
+  This job will build your sites source code using jekyll, and test it.
 
 parameters:
   with-gems:
+    default: false
+    type: boolean
+  zip-artifact:
     default: false
     type: boolean
 
@@ -14,7 +15,9 @@ steps:
   - build-site:
       with-gems: << parameters.with-gems >>
   - test-site
-  - persist_to_workspace:
+  - save-source:
+      tar-zip: << parameters.zip-artifact >>
+  - persist_to_workspace: # This passed the compiled/tested site to the deploy job
       root: ~/project
       paths:
         - _site

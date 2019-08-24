@@ -1,0 +1,24 @@
+description:
+  save the compiled source code as artifacts. 
+
+parameters:
+  tar-zip:
+    default: false
+    type: boolean
+    description: >
+      large websites may need to be zipped before upload for performance reasons
+
+steps:
+  - when:
+      condition: << parameters.tar-zip >>
+      steps:
+        - store_artifacts:
+            path: _site
+            destination: site-source
+  - unless:
+      condition: << parameters.tar-zip >>
+      steps:
+        - run: tar -zcvf site-source.tar.gz _site
+        - store_artifacts:
+            path: _site
+            destination: site-source

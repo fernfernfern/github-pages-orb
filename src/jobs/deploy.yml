@@ -1,3 +1,6 @@
+description: >
+  This job takes the built and tested source code from the test job and pushes it back up to the gh-pages branch for live deployment
+
 parameters:
   fingerprint:
     type: string
