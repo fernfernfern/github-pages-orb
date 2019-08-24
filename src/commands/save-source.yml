@@ -1,5 +1,5 @@
 description:
-  save the compiled source code as artifacts. 
+  save the compiled source code as artifacts.
 
 parameters:
   tar-zip:
